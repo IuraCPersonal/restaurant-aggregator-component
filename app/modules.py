@@ -1,0 +1,7 @@
+HOST_NAME = '0.0.0.0'
+DINING_HALL_PORT = 8080
+KITCHEN_PORT = 3000
+AGGREGATOR_PORT = 7777
+KITCHEN_HOSTNAME = "localhost"
+
+restaurants_list = dict()
