@@ -1,7 +1,22 @@
-HOST_NAME = '0.0.0.0'
-DINING_HALL_PORT = 8080
-KITCHEN_PORT = 3000
-AGGREGATOR_PORT = 7777
-KITCHEN_HOSTNAME = "localhost"
+import os, json
 
-restaurants_list = dict()
+from app.utils.Counter import Counter
+
+# Function to read the content of a JSON file.
+def read_json(file):    
+    current_directory = os.getcwd()
+    with open(f'./{current_directory}/data/{file}', 'r') as f:
+        data = json.load(f)
+    
+    return data
+
+
+restaurants_cfg = read_json('restaurants.json').get('restaurants')
+
+restaurants = dict()
+order_indexer = Counter()
+
+HOST_NAME = os.getenv('HOST_NAME')
+RESTAURANT_ID = os.getenv('RESTAURANT_ID')
+
+FOOD_ORDERING_PORT = os.getenv('FOOD_ORDERING_PORT')
